@@ -1,9 +1,19 @@
 import pandas as pd
-def table_extractor(File_path,NumberOfTeams):
+def table_cleaner(text_file_or_file_path,NumberOfTeams):    
+    tffp=text_file_or_file_path
     T,P,S=7, 8, 6
+    text_file=None
 	#Raw data
-    text=pd.read_csv(File_path)
-	
+    #text=pd.read_csv(File_path)
+    if isinstance(tffp, str) and tffp.lower().endswith('.txt'):
+        text_file=pd.read_csv(tffp)
+    #elif isinstance(tffp, pd.DataFrame):
+    else:
+        text_file=tffp
+    """else:
+        df1=None
+        break"""
+    text=text_file
 	#extracting team names and storing them in a list
     Teams = text.iloc[[8*x - T for x in range(1, NumberOfTeams+1)]] 
     
