@@ -1,5 +1,5 @@
 import pandas as pd
-def table_cleaner(File_path,NumberOfTeams):
+def table_extractor(File_path,NumberOfTeams):
     T,P,S=7, 8, 6
 	#Raw data
     text=pd.read_csv(File_path)
