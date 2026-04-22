@@ -1,7 +1,8 @@
 import pandas as pd
-def table_cleaner(text_file_or_file_path,NumberOfTeams):    
+def table_extractor(text_file_or_file_path,NumberOfTeams):    
     tffp=text_file_or_file_path
-    T,P,S=7, 8, 6
+    #I need to write a function that calculates this numbers below
+	T,P,S=7, 8, 6
     text_file=None
 	#Raw data
     #text=pd.read_csv(File_path)
@@ -25,14 +26,11 @@ def table_cleaner(text_file_or_file_path,NumberOfTeams):
 
 	#Extracting values from Stats and saving them into a readable data frame
     df = pd.DataFrame([[int(x) for x in s.split('\t') if x.strip()] for s in Stats['Team\tPTS\tMP\tW\tL\tD\tGF\tGA\tGD\tLast 5'] if s.strip() and s.split('\t')[0].lstrip('-').isdigit()], columns=['PTS', 'MP', 'W', 'L', 'D', 'GF', 'GA', 'GD'])
-        
-	#Copying df and pasting it in df1
-    df1=df.copy()
- 
+     
 	#Adding Position number column and placing it on column 1
-    df1.insert(0, 'Position', Position.sort_index()['Team\tPTS\tMP\tW\tL\tD\tGF\tGA\tGD\tLast 5'].tolist())
+    df.insert(0, 'Position', Position.sort_index()['Team\tPTS\tMP\tW\tL\tD\tGF\tGA\tGD\tLast 5'].tolist())
 
 	#Adding team name column and placing it on column 2
-    df1.insert(1, 'Teams', Teams.sort_index()['Team\tPTS\tMP\tW\tL\tD\tGF\tGA\tGD\tLast 5'].tolist())
+    df.insert(1, 'Teams', Teams.sort_index()['Team\tPTS\tMP\tW\tL\tD\tGF\tGA\tGD\tLast 5'].tolist())
     
-    return df1
+    return df
