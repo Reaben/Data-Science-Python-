@@ -5,7 +5,7 @@ def table_extractor(text_file_or_file_path,NumberOfTeams):
 	T,P,S=7, 8, 6
     text_file=None
 	#Raw data
-    #text=pd.read_csv(File_path)
+    
     if isinstance(tffp, str) and tffp.lower().endswith('.txt'):
         text_file=pd.read_csv(tffp)
     #elif isinstance(tffp, pd.DataFrame):
