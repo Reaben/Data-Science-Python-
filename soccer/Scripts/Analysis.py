@@ -73,7 +73,8 @@ class Overall_report:
 
         # ----- Right subplot: Bar chart -----
         categories = ['Wins', 'Draws', 'Losses']
-        values = sizes.copy()   # [wins, draws, losses]
+        #values = sizes.copy()   # [wins, draws, losses]
+        values = [team_data['W'],team_data['D'],team_data['L']]
         bar_colors = ['#2ecc71', '#f1c40f', '#e74c3c']
         bars = ax2.bar(categories, values, color=bar_colors, edgecolor='black', linewidth=1.2)
 
@@ -100,6 +101,7 @@ class Overall_report:
         n=self.n
         df=self.df
         Name_of_team=str(input("Enter name of Team: "))
+        print("="*self.Spacing)
         #Team data
         td = df[df['Teams'] == Name_of_team].iloc[0]
         if n<=16:
