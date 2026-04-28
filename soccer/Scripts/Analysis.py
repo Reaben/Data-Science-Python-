@@ -31,13 +31,13 @@ class Overall_report:
             print("\n")
         print(f"\t\t\t\t\t\t\tTop {Top_number}.")
         print("="*self.Spacing)
-        print(df[df["Position"]<=Top_number])
+        print(df[df["Position"]<=Top_number].to_string(index=False))
         
     def Bottom(self):
         df=self.df
         Bottom_number=int(input("Enter number: "))
         print("="*self.Spacing)
-        print(df[df["Position"]>Bottom_number])
+        print(df[df["Position"]>Bottom_number].to_string(index=False))
         
     def Team_statistics(self):
         ValtoMean=Overall_report(self.df).ValtoMean
